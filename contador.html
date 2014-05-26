@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Não perca tempo</title>
+<script type="text/javascript"></script>
+<link rel ="stylesheet" type="text/css" href="estilo.css" />
+</head>
+
+<body>
+<form action="" method="post" name="txtForm" onsubmit="javascript: return test() ">
+<p>Data de Nascimento</p><br />
+<input type="date" name="nome" />
+<input type="submit" value="Consultar" class="buttom" />
+</form>
+<canvas id="canvas" height="200" width="1000" ></canvas>
+<script language="javascript" type="text/javascript">				   
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+function test(){
+	//Início do tratamento do tempo de vida restante
+var data = document.txtForm.nome.value;
+	
+var ano = data.substr(0,4);
+var mes = data.substr(5,2);
+var dia = data.substr(8,2);
+//converter todo o tempo para seg
+var expect = 75*12*30*24*60*60//em segundos
+now = new Date;
+var dataNasc = parseInt(dia)+parseInt(mes)*30+parseInt(ano)*12*30; //data em dias
+now = new Date;
+var dataAtual = now.getDay()+(now.getMonth()+1)*30+now.getFullYear()*12*30;//em dias
+var tempoVida = (dataAtual-dataNasc)*24*60*60;//em segundos
+var tempo = expect - tempoVida; //em segundos
+
+//Fim do tratamento do tempo de vida restante
+
+if(typeof game_loop != "undefined") clearInterval(game_loop);
+game_loop = setInterval(contador, 1000);
+function contador(){
+ctx.fillStyle="white";
+ctx.beginPath();
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.closePath();
+ctx.fillStyle="black";
+ctx.font = "40px Courier New";
+ctx.fillText("Você tem "+tempo+" segundos de vida", 100, 80);
+tempo--;
+}
+return false;
+}
+
+</script>
+<div id="contador"></div>
+</body>
+</html>
