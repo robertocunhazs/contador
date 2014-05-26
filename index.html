@@ -13,38 +13,49 @@
 
   <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/robertocunhazs/contador">View on GitHub</a>
+    <form action="" method="post" name="txtForm" onsubmit="javascript: return test() ">
+<p>Data de Nascimento</p><br />
+<input type="date" name="nome" />
+<input type="submit" value="Consultar" class="buttom" />
+</form>
+<canvas id="canvas" height="200" width="1000" ></canvas>
+<script language="javascript" type="text/javascript">				   
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+function test(){
+	//Início do tratamento do tempo de vida restante
+var data = document.txtForm.nome.value;
+	
+var ano = data.substr(0,4);
+var mes = data.substr(5,2);
+var dia = data.substr(8,2);
+//converter todo o tempo para seg
+var expect = 75*12*30*24*60*60//em segundos
+now = new Date;
+var dataNasc = parseInt(dia)+parseInt(mes)*30+parseInt(ano)*12*30; //data em dias
+now = new Date;
+var dataAtual = now.getDay()+(now.getMonth()+1)*30+now.getFullYear()*12*30;//em dias
+var tempoVida = (dataAtual-dataNasc)*24*60*60;//em segundos
+var tempo = expect - tempoVida; //em segundos
 
-          <h1 id="project_title">Contador</h1>
-          <h2 id="project_tagline">Contador de segundos</h2>
+//Fim do tratamento do tempo de vida restante
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/robertocunhazs/contador/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/robertocunhazs/contador/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+if(typeof game_loop != "undefined") clearInterval(game_loop);
+game_loop = setInterval(contador, 1000);
+function contador(){
+ctx.fillStyle="white";
+ctx.beginPath();
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.closePath();
+ctx.fillStyle="black";
+ctx.font = "40px Courier New";
+ctx.fillText("Você tem "+tempo+" segundos de vida", 100, 80);
+tempo--;
+}
+return false;
+}
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="contadorgithubio" class="anchor" href="#contadorgithubio"><span class="octicon octicon-link"></span></a>contador.github.io</h1>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Contador maintained by <a href="https://github.com/robertocunhazs">robertocunhazs</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+</script>
+<div id="contador"></div>
   </body>
 </html>

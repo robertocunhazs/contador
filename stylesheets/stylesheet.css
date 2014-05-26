@@ -8,6 +8,26 @@ by Jason Costello, @jsncostello
 /*******************************************************************************
 MeyerWeb Reset
 *******************************************************************************/
+input[type=date]{
+	margin-left: 37.5%;
+	top: 30px;
+	border-radius: 6px;
+	}
+input.buttom{
+	border-radius: 10px;
+	background-color:#09F;
+	}
+canvas{
+	margin-top: 200px;	
+	margin-left: 100px;
+	}
+p{	margin-bottom: 0px;
+	margin-top: 0;
+	margin-left:37.5%;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:18px;
+}
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
