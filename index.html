@@ -43,11 +43,11 @@ var tempo = expect - tempoVida; //em segundos
 if(typeof game_loop != "undefined") clearInterval(game_loop);
 game_loop = setInterval(contador, 1000);
 function contador(){
-ctx.fillStyle="white";
+ctx.fillStyle="black";
 ctx.beginPath();
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.closePath();
-ctx.fillStyle="black";
+ctx.fillStyle="white";
 ctx.font = "40px Courier New";
 ctx.fillText("Você tem "+tempo+" segundos de vida", 100, 80);
 tempo--;
