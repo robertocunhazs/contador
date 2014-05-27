@@ -8,17 +8,16 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Contador</title>
+    <title>Contador de vida</title>
   </head>
 
   <body>
 
     <form action="" method="post" name="txtForm" onsubmit="javascript: return test() ">
-<p>Data de Nascimento</p><br />
-<input type="date" name="nome" />
-<input type="submit" value="Consultar" class="buttom" />
+<div class="datanasc">Data de Nascimento <input type="date" name="nome" />
+<input type="submit" value="Consultar" class="buttom" /></div>
 </form>
-<canvas id="canvas" height="200" width="1000" ></canvas>
+<canvas id="canvas" height="400" width="1000" ></canvas>
 <script language="javascript" type="text/javascript">				   
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -49,13 +48,12 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.closePath();
 ctx.fillStyle="white";
 ctx.font = "40px Courier New";
-ctx.fillText("Você tem "+tempo+" segundos de vida", 100, 80);
+ctx.fillText("Você tem "+tempo+" segundos de vida", 300, 200);
 tempo--;
 }
 return false;
 }
 
 </script>
-<div id="contador"></div>
   </body>
 </html>

@@ -9,7 +9,8 @@ by Jason Costello, @jsncostello
 MeyerWeb Reset
 *******************************************************************************/
 input[type=date]{
-	margin-left: 37.5%;
+	margin-left: 10px;
+	left: 37.5%;
 	top: 30px;
 	border-radius: 6px;
 	}
@@ -17,13 +18,16 @@ input.buttom{
 	border-radius: 10px;
 	background-color:#09F;
 	}
-canvas{
-	margin-top: 200px;	
+.datanasc{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 37.5%;
+}
+canvas{	
 	margin-left: 100px;
 	}
-p{	margin-bottom: 0px;
-	margin-top: 0;
-	left:37.5%;
+p{	
+	
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size:18px;
 }
